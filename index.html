@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color"
+          content="#080a09">
+
+    <meta name="description"
+          content="मेरे फौजी महान — भारतीय वीर जवानों को समर्पित देशभक्ति संगीत">
+
+    <title>मेरे फौजी महान 🇮🇳</title>
+
+    <!--
+        ============================================
+        GOOGLE FONTS
+        ============================================
+
+        Hindi font for the patriotic text.
+        If you want completely offline usage later,
+        we can remove these fonts.
+    -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Your CSS -->
+    <link rel="stylesheet"
+          href="style.css">
+</head>
+
+
+<body>
+
+    <!--
+        ==================================================
+        FULLSCREEN APP
+        ==================================================
+    -->
+
+    <main class="app">
+
+
+        <!--
+            ==================================================
+            BACKGROUND
+            ==================================================
+
+            Two layers are used so JavaScript can create
+            a smooth crossfade between wallpapers.
+
+            DO NOT remove these.
+        -->
+
+        <div class="background-layer background-layer-1"
+             id="backgroundLayer1">
+        </div>
+
+        <div class="background-layer background-layer-2"
+             id="backgroundLayer2">
+        </div>
+
+
+        <!--
+            ==================================================
+            CINEMATIC OVERLAY
+            ==================================================
+
+            Makes text readable over the wallpaper.
+        -->
+
+        <div class="cinematic-overlay"></div>
+
+
+        <!--
+            ==================================================
+            FILM GRAIN
+            ==================================================
+        -->
+
+        <div class="film-grain"></div>
+
+
+        <!--
+            ==================================================
+            VIGNETTE
+            ==================================================
+        -->
+
+        <div class="vignette"></div>
+
+
+        <!--
+            ==================================================
+            MAIN CONTENT
+            ==================================================
+        -->
+
+        <div class="content">
+
+
+            <!--
+                ==============================================
+                TOP LABEL
+                ==============================================
+            -->
+
+            <header class="top">
+
+                <div class="patriot-label">
+
+                    <span class="flag-icon"></span>
+
+                    <span>
+                        भारत के वीर जवानों को समर्पित
+                    </span>
+
+                </div>
+
+
+                <div class="website-label">
+
+                     DESHBHAKTI GEET
+
+                </div>
+
+            </header>
+
+
+
+            <!--
+                ==============================================
+                CENTER CONTENT
+                ==============================================
+            -->
+
+            <section class="hero-content">
+
+
+                <!-- Small heading -->
+
+                <p class="eyebrow">
+                    
+                </p>
+
+
+                <!--
+                    MAIN TITLE
+                -->
+
+                <h1>
+                     फौजी 
+                </h1>
+
+
+                <!--
+                    TRICOLOR LINE
+                -->
+
+                <div class="tricolor-line"
+                     aria-hidden="true">
+
+                    <span class="tricolor-saffron"></span>
+
+                    <span class="tricolor-white"></span>
+
+                    <span class="tricolor-green"></span>
+
+                </div>
+
+
+                <!--
+                    ==========================================
+                    CURRENT SONG
+                    ==========================================
+                -->
+
+                <div class="song-information">
+
+
+                    <!-- Current song -->
+
+                    <h2 id="songTitle">
+                        संदेसे आते हैं
+                    </h2>
+
+
+                    <!-- Small label -->
+
+                    <p class="song-subtitle">
+                        
+                    </p>
+
+
+                    <!--
+                        Motivational / patriotic line.
+
+                        JavaScript will change this whenever
+                        the song changes.
+                    -->
+
+                    <p class="song-quote"
+                       id="songQuote">
+
+                        ""
+
+                    </p>
+
+                </div>
+
+
+            </section>
+
+
+
+            <!--
+                ==============================================
+                MUSIC PLAYER
+                ==============================================
+            -->
+
+            <section class="music-player"
+                     aria-label="Music Player">
+
+
+                <!--
+                    ==========================================
+                    VISUALIZER
+                    ==========================================
+                -->
+
+                <div class="visualizer"
+                     id="visualizer"
+                     aria-hidden="true">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+
+
+                <!--
+                    ==========================================
+                    PLAYER CONTROLS
+                    ==========================================
+                -->
+
+                <div class="player-controls">
+
+
+                    <!-- Previous -->
+
+                    <button
+                        type="button"
+                        id="previousButton"
+                        class="control-button previous-button"
+                        aria-label="Previous Song"
+                        title="Previous Song">
+
+                        <span aria-hidden="true">
+                            ⏮
+                        </span>
+
+                    </button>
+
+
+
+                    <!--
+                        PLAY / PAUSE
+
+                        JavaScript changes the icon
+                        between ▶ and ⏸.
+                    -->
+
+                    <button
+                        type="button"
+                        id="playButton"
+                        class="control-button play-button"
+                        aria-label="Play Song"
+                        title="Play Song">
+
+                        <span id="playIcon"
+                              aria-hidden="true">
+                            ▶
+                        </span>
+
+                    </button>
+
+
+
+                    <!-- Next -->
+
+                    <button
+                        type="button"
+                        id="nextButton"
+                        class="control-button next-button"
+                        aria-label="Next Song"
+                        title="Next Song">
+
+                        <span aria-hidden="true">
+                            ⏭
+                        </span>
+
+                    </button>
+
+
+                </div>
+
+
+
+                <!--
+                    ==========================================
+                    NOW PLAYING STATUS
+                    ==========================================
+                -->
+
+                <div class="playing-status"
+                     id="playingStatus">
+
+                    <span class="status-dot"></span>
+
+                    <span id="statusText">
+                        तैयार है
+                    </span>
+
+                </div>
+
+
+
+            </section>
+
+
+
+            <!--
+                ==============================================
+                PROGRESS AREA
+                ==============================================
+            -->
+
+            <section class="progress-area"
+                     aria-label="Song Progress">
+
+
+                <!--
+                    Current time
+                -->
+
+                <span id="currentTime">
+                    00:00
+                </span>
+
+
+                <!--
+                    Progress bar
+
+                    IMPORTANT:
+                    This is a range input because it allows
+                    clicking and dragging.
+                -->
+
+                <input
+                    type="range"
+                    id="progressBar"
+                    class="progress-bar"
+                    min="0"
+                    max="100"
+                    value="0"
+                    step="0.1"
+                    aria-label="Seek Song"
+                    title="Seek Song">
+
+
+                <!--
+                    Total duration
+                -->
+
+                <span id="totalTime">
+                    00:00
+                </span>
+
+
+            </section>
+
+
+
+            <!--
+                ==============================================
+                BOTTOM PATRIOTIC MESSAGE
+                ==============================================
+            -->
+
+            <div class="bottom-message">
+
+                <span>
+                     जय हिन्द 
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <!--
+            ==================================================
+            HIDDEN HTML5 AUDIO PLAYER
+            ==================================================
+
+            Controls are hidden because we created our
+            own custom controls above.
+
+            JavaScript will change the src dynamically.
+        -->
+
+        <audio
+            id="audioPlayer"
+            preload="metadata">
+
+            Your browser does not support HTML5 audio.
+
+        </audio>
+
+
+    </main>
+
+
+
+    <!--
+        ==================================================
+        JAVASCRIPT
+        ==================================================
+
+        This will contain:
+
+        - Song list
+        - Play / pause
+        - Next / previous
+        - Progress bar
+        - Song duration
+        - Wallpaper changing
+        - 120 second wallpaper timer
+        - Motivational quote changing
+        - Automatic next song
+        - Visualizer animation
+    -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
