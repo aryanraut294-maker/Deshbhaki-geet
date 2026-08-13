@@ -1,154 +1,326 @@
 /* =========================================================
-   MERE FAUJI MAHAN 🇮🇳
-   SCRIPT.JS
+   🇮🇳 FAUJI DESHBHAKTI GEET
+   COMPLETE MUSIC + WALLPAPER SYSTEM
    ========================================================= */
 
 
 /* =========================================================
-   1. WALLPAPERS
-   ========================================================= */
+   1. SONG LIST
+   =========================================================
 
-const wallpapers = [
-    "images/fauji-wallpaper-1.jpg",
-    "images/fauji-wallpaper-2.jpg",
-    "images/fauji-wallpaper-3.jpg",
-    "images/fauji-wallpaper-4.jpg",
-    "images/fauji-wallpaper-5.jpg",
-    "images/fauji-wallpaper-6.jpg"
-];
+   IMPORTANT:
+   These filenames MUST be exactly the same as the files
+   inside your:
 
-let currentWallpaper = 0;
+   music/
 
+   folder.
 
-/* =========================================================
-   2. SONGS
-   ========================================================= */
+   If you add another song later, add another object here.
+*/
 
 const songs = [
 
     {
-        title: "ऐ मेरे वतन के लोगों",
-        quote: "देश के वीर जवानों को शत-शत नमन।",
-        audio: "music/Ae Mere Watan Ke Logon.mp3"
+        title: "01 - Prassthanam Title Track",
+        file: "01 - Prassthanam Title Track - Prassthanam (2019).mp3",
+        quote: "हर कदम देश के नाम।"
     },
 
     {
-        title: "ऐ वतन ऐ वतन",
-        quote: "वतन से बढ़कर कुछ भी नहीं।",
-        audio: "music/Ae Watan Ae Watan (From Shaheed).mp3"
+        title: "Ab Tumhare Hawale Vatan Sathiyon",
+        file: "Ab Tumhare Hawale Vatan Sathiyon.mp3",
+        quote: "वतन के लिए समर्पण ही सच्ची देशभक्ति है।"
     },
 
     {
-        title: "ऐ वतन मेरे वतन",
-        quote: "भारत माता के चरणों में नमन।",
-        audio: "music/Ae Watan Mere Watan - Title Track (PenduJatt.Com.Se).mp3"
+        title: "Ae Mere Watan Ke Logon",
+        file: "Ae Mere Watan Ke Logon.mp3",
+        quote: "शहीदों को याद करना ही सच्ची श्रद्धांजलि है।"
     },
 
     {
-        title: "भारत माँ की जय जयकार",
-        quote: "भारत माता की जय।",
-        audio: "music/Bharat Maa Ki Jai Jaikar.mp3"
+        title: "Ae Mere Watan Ke Logon - Sky Force",
+        file: "Ae Mere Watan Ke Logon Sky Force 128 Kbps.mp3",
+        quote: "भारत के वीर जवानों को शत्-शत् नमन।"
     },
 
     {
-        title: "देश रंगीला",
-        quote: "मेरा भारत सबसे प्यारा।",
-        audio: "music/Des Rangila Fanaa 128 Kbps.mp3"
+        title: "Ae Watan Ae Watan",
+        file: "Ae Watan Ae Watan (From Shaheed).mp3",
+        quote: "वतन से बढ़कर कुछ भी नहीं।"
     },
 
     {
-        title: "देश मेरे",
-        quote: "इस मिट्टी से हमें पहचान मिली है।",
-        audio: "music/Desh Mere Bhuj - Arijit Singh.mp3"
+        title: "Ae Watan Mere Watan",
+        file: "Ae Watan Mere Watan - Title Track (PenduJatt.Com.Se).mp3",
+        quote: "मेरा वतन, मेरी पहचान।"
+    },
+
+    {
+        title: "Aisa Des Hai Mera",
+        file: "Aisa Des Hai Mera.mp3",
+        quote: "ऐसा देश है मेरा।"
+    },
+
+    {
+        title: "Allah Tero Naam",
+        file: "Allah Tero Naam Ishwar Tero Naam.mp3",
+        quote: "भारत की मिट्टी में अनेकता में एकता बसती है।"
+    },
+
+    {
+        title: "Ban Ke Dikha Ikkis",
+        file: "Ban Ke Dikha Ikkis(KoshalWorld.Com).mp3",
+        quote: "देश के लिए कुछ कर गुजरने का जज़्बा।"
+    },
+
+    {
+        title: "Bharat Humko Jaan Se Pyara Hai",
+        file: "Bharat Humko Jaan Se Pyara Hai.mp3",
+        quote: "भारत हमें जान से भी प्यारा है।"
+    },
+
+    {
+        title: "Bharat Maa Ki Jai Jaikar",
+        file: "Bharat Maa Ki Jai Jaikar.mp3",
+        quote: "भारत माता की जय!"
+    },
+
+    {
+        title: "Brothers Anthem",
+        file: "Brothers Anthem Vishal Dadlani 320 Kbps.mp3",
+        quote: "हौसला रखो और आगे बढ़ते रहो।"
+    },
+
+    {
+        title: "Des Rangila",
+        file: "Des Rangila Fanaa 128 Kbps.mp3",
+        quote: "रंग दे बसंती वतन की मिट्टी को।"
+    },
+
+    {
+        title: "Desh Mere",
+        file: "Desh Mere Bhuj - Arijit Singh.mp3",
+        quote: "मेरा देश, मेरी शान।"
+    },
+
+    {
+        title: "Ekla Cholo Re Kahaani",
+        file: "Ekla Cholo Re Kahaani 128 Kbps.mp3",
+        quote: "अकेले चलना पड़े तो भी देश के लिए चलते रहो।"
+    },
+
+    {
+        title: "Ghar Kab Aaoge",
+        file: "Ghar Kab Aaoge (From BORDER 2).mp3",
+        quote: "हर सैनिक के पीछे एक परिवार इंतजार करता है।"
+    },
+
+    {
+        title: "Hindustan Meri Jaan",
+        file: "Hindustan Meri Jaan Border 2 128 Kbps.mp3",
+        quote: "हिंदुस्तान मेरी जान।"
+    },
+
+    {
+        title: "Hindustani",
+        file: "Hindustani (Suno Gaur Se Duniya Walo).mp3",
+        quote: "सुनो गौर से दुनिया वालों।"
+    },
+
+    {
+        title: "Hum Honge Kamyaab",
+        file: "Hum Honge Kamyaab.mp3",
+        quote: "हम होंगे कामयाब।"
     },
 
     {
         title: "I Love My India",
-        quote: "दिल से हिंदुस्तानी।",
-        audio: "music/I Love My India Male Pardes 128 Kbps.mp3"
+        file: "I Love My India Male Pardes 128 Kbps.mp3",
+        quote: "I Love My India 🇮🇳"
     },
 
     {
-        title: "कंधों से मिलते हैं कंधे",
-        quote: "एक साथ खड़े हैं भारत के वीर जवान।",
-        audio: "music/Kandhon-Se-Milte-Hain-Kandhe-4K-Music-Video-Lakshya-Hrithik-Sonu Nigam-Hariharan.mp3"
+        title: "Itni Shakti Hamein Dena Data",
+        file: "Itni Shakti Hamein Dena Data.mp3",
+        quote: "हे प्रभु, हमें देश के लिए सही मार्ग दिखाना।"
     },
 
     {
-        title: "कर हर मैदान फतेह",
-        quote: "हर मुश्किल के सामने जीत हमारी होगी।",
-        audio: "music/Kar Har Maidaan Fateh Sanju 128 Kbps.mp3"
+        title: "Jagga Jiteya",
+        file: "Jagga Jiteya (Uri - The Surgical Strike) 128 Kbps.mp3",
+        quote: "देश के लिए जीतने का जज़्बा।"
     },
 
     {
-        title: "माँ तुझे सलाम",
-        quote: "माँ तुझे सलाम।",
-        audio: "music/Maa Tujhe Salaam Vande Mataram 128 Kbps.mp3"
+        title: "Jahan Daal Daal Par Sone Ki Chidiya",
+        file: "Jahan Daal Daal Par Sone Ki Chidiya (PenduJatt.Com.Se).mp3",
+        quote: "सोने की चिड़िया हमारा हिंदुस्तान।"
     },
 
     {
-        title: "मेरे देश की धरती",
-        quote: "मेरे देश की मिट्टी को प्रणाम।",
-        audio: "music/Mere Desh Ki Dharti Sona Ugle (From Upkar).mp3"
+        title: "Jahan Daal Daal Pe Sone Ki Chidiya",
+        file: "Jahan-Dal-Dal-Pe-Sone-Ki-Chidiya.mp3",
+        quote: "भारत की समृद्ध विरासत को सलाम।"
+    },
+
+    {
+        title: "Jai Hindi Ki Senaa",
+        file: "Jai Hindi Ki Senaa(PagalWorld.com.pe).mp3",
+        quote: "जय हिंद की सेना!"
+    },
+
+    {
+        title: "Jana Gana Mana",
+        file: "Jana Gana Mana - Major- [PagalWorld.NL].mp3",
+        quote: "जन गण मन अधिनायक जय हे।"
+    },
+
+    {
+        title: "Jeete Hain Chal",
+        file: "Jeete Hain Chal Neerja 128 Kbps.mp3",
+        quote: "हौसले के साथ आगे बढ़ते रहो।"
+    },
+
+    {
+        title: "Jhuk Na Paunga",
+        file: "Jhuk Na Paunga Raid 320 Kbps.mp3",
+        quote: "देश के सामने कभी झुकना नहीं।"
+    },
+
+    {
+        title: "Kandhon Se Milte Hain Kandhe",
+        file: "Kandhon-Se-Milte-Hain-Kandhe-4K-Music-Video-Lakshya-Hrithik-Sonu-Nigam-Hariharan.mp3",
+        quote: "कंधे से कंधा मिलाकर देश की रक्षा।"
+    },
+
+    {
+        title: "Kar Har Maidaan Fateh",
+        file: "Kar Har Maidaan Fateh Sanju 128 Kbps.mp3",
+        quote: "हर मैदान फतह करना है।"
+    },
+
+    {
+        title: "Kasumbi",
+        file: "Kasumbi Parmanu 128 Kbps.mp3",
+        quote: "देश के वीरों के नाम।"
+    },
+
+    {
+        title: "Lakshya",
+        file: "Lakshya Shankar Mahadevan 128 Kbps.mp3",
+        quote: "लक्ष्य हमेशा ऊँचा रखो।"
+    },
+
+    {
+        title: "Lehra Do",
+        file: "Lehra Do (PenduJatt.Com.Se).mp3",
+        quote: "तिरंगा हमेशा ऊँचा लहराए।"
+    },
+
+    {
+        title: "Maa Tujhe Salaam",
+        file: "Maa Tujhe Salaam Vande Mataram 128 Kbps.mp3",
+        quote: "माँ तुझे सलाम।"
+    },
+
+    {
+        title: "Mera Karma Tu",
+        file: "Mera Karma Tu (From Karma).mp3",
+        quote: "भारत माता को नमन।"
+    },
+
+    {
+        title: "Mere Desh Ki Dharti",
+        file: "Mere Desh Ki Dharti Sona Ugle (From Upkar).mp3",
+        quote: "मेरे देश की धरती सोना उगले।"
     },
 
     {
         title: "Sainika",
-        quote: "भारत के सैनिकों को सलाम।",
-        audio: "music/Sainika - SenSongsMp3.Co.mp3"
+        file: "Sainika - SenSongsMp3.Co.mp3",
+        quote: "हर सैनिक को सलाम।"
     },
 
     {
-        title: "संदेसे आते हैं",
-        quote: "सीमा पर खड़ा हर जवान किसी माँ का लाल है।",
-        audio: "music/Sandese Aate Hain Border 320 Kbps.mp3"
+        title: "Sandese Aate Hain",
+        file: "Sandese Aate Hain Border 320 Kbps.mp3",
+        quote: "सीमा पर खड़ा हर जवान किसी माँ का बेटा है।"
     },
 
     {
-        title: "सारे जहाँ से अच्छा",
-        quote: "हिंदुस्तान हमारा।",
-        audio: "music/Sare Jahan Se Achha Hindustan Hamara.mp3"
+        title: "Sare Jahan Se Achha",
+        file: "Sare Jahan Se Achha Hindustan Hamara.mp3",
+        quote: "सारे जहाँ से अच्छा हिंदुस्तान हमारा।"
     },
 
     {
-        title: "सरफरोशी की तमन्ना",
-        quote: "वतन के लिए बलिदान से बड़ा कोई सम्मान नहीं।",
-        audio: "music/Sarfaroshi Ki Tamanna Shaheed 128 Kbps.mp3"
+        title: "Sarfaroshi Ki Tamanna",
+        file: "Sarfaroshi Ki Tamanna Shaheed 128 Kbps.mp3",
+        quote: "सरफरोशी की तमन्ना अब हमारे दिल में है।"
     },
 
     {
-        title: "वंदे मातरम्",
-        quote: "वंदे मातरम्।",
-        audio: "music/Vande Mataram (The Fighter Anthem) From Fighter.mp3"
+        title: "Tu Hindu Banega Na Musalman",
+        file: "Tu Hindu Banega Na Musalman.mp3",
+        quote: "भारत की पहचान एकता और भाईचारा है।"
+    },
+
+    {
+        title: "Vande Mataram",
+        file: "Vande Mataram (The Fighter Anthem) From Fighter.mp3",
+        quote: "वन्दे मातरम्।"
     }
 
 ];
 
 
 /* =========================================================
-   3. HTML ELEMENTS
+   2. WALLPAPERS
+   =========================================================
+
+   You said you have 11 wallpapers.
+
+   Rename them like this:
+
+   images/
+       fauji-wallpaper-1.jpg
+       fauji-wallpaper-2.jpg
+       fauji-wallpaper-3.jpg
+       ...
+       fauji-wallpaper-11.jpg
+
+   IMPORTANT:
+   File extension must be correct.
+   If your files are .png, change .jpg to .png.
+*/
+
+const wallpapers = [
+
+    "images/fauji-wallpaper-1.jpg",
+    "images/fauji-wallpaper-2.jpg",
+    "images/fauji-wallpaper-3.jpg",
+    "images/fauji-wallpaper-4.jpg",
+    "images/fauji-wallpaper-5.jpg",
+    "images/fauji-wallpaper-6.jpg",
+    "images/fauji-wallpaper-7.jpg",
+    "images/fauji-wallpaper-8.jpg",
+    "images/fauji-wallpaper-9.jpg",
+    "images/fauji-wallpaper-10.jpg",
+    "images/fauji-wallpaper-11.jpg"
+
+];
+
+
+/* =========================================================
+   3. GET HTML ELEMENTS
    ========================================================= */
 
-const backgroundLayer1 =
-    document.getElementById("backgroundLayer1");
+const audio = document.getElementById("audioPlayer");
 
-const backgroundLayer2 =
-    document.getElementById("backgroundLayer2");
-
-const audioPlayer =
-    document.getElementById("audioPlayer");
-
-const songTitle =
-    document.getElementById("songTitle");
-
-const songQuote =
-    document.getElementById("songQuote");
-
-const playButton =
-    document.getElementById("playButton");
-
-const playIcon =
-    document.getElementById("playIcon");
+const playButton = document.getElementById("playButton");
+const playIcon = document.getElementById("playIcon");
 
 const previousButton =
     document.getElementById("previousButton");
@@ -159,11 +331,17 @@ const nextButton =
 const progressBar =
     document.getElementById("progressBar");
 
-const currentTime =
+const currentTimeElement =
     document.getElementById("currentTime");
 
-const totalTime =
+const totalTimeElement =
     document.getElementById("totalTime");
+
+const songTitle =
+    document.getElementById("songTitle");
+
+const songQuote =
+    document.getElementById("songQuote");
 
 const statusText =
     document.getElementById("statusText");
@@ -171,83 +349,67 @@ const statusText =
 const visualizer =
     document.getElementById("visualizer");
 
+const backgroundLayer1 =
+    document.getElementById("backgroundLayer1");
+
+const backgroundLayer2 =
+    document.getElementById("backgroundLayer2");
+
 
 /* =========================================================
    4. VARIABLES
    ========================================================= */
 
-let currentSong = 0;
+let currentSongIndex = 0;
 
-let isPlaying = false;
+let currentWallpaperIndex = 0;
 
 let activeBackground = 1;
 
+/*
+   Wallpaper changes every 120 seconds.
+*/
+const WALLPAPER_INTERVAL = 120000;
+
+let wallpaperTimer;
+
 
 /* =========================================================
-   5. WALLPAPER FUNCTION
+   5. FORMAT TIME
    ========================================================= */
 
-function changeWallpaper(index) {
+function formatTime(seconds) {
 
-    if (!backgroundLayer1 || !backgroundLayer2) {
-        console.error("Wallpaper layers not found!");
-        return;
+    if (!isFinite(seconds) || seconds < 0) {
+        return "00:00";
     }
 
-    const image =
-        wallpapers[index];
+    const minutes =
+        Math.floor(seconds / 60);
 
-    /*
-       We use two layers.
+    const remainingSeconds =
+        Math.floor(seconds % 60);
 
-       One layer is visible.
-       The other layer receives the next image.
-
-       Then we crossfade them.
-    */
-
-    if (activeBackground === 1) {
-
-        backgroundLayer2.style.backgroundImage =
-            `url("${image}")`;
-
-        backgroundLayer2.classList.add("visible");
-
-        backgroundLayer1.classList.remove("visible");
-
-        activeBackground = 2;
-
-    } else {
-
-        backgroundLayer1.style.backgroundImage =
-            `url("${image}")`;
-
-        backgroundLayer1.classList.add("visible");
-
-        backgroundLayer2.classList.remove("visible");
-
-        activeBackground = 1;
-
-    }
-
-    currentWallpaper = index;
-
+    return (
+        String(minutes).padStart(2, "0") +
+        ":" +
+        String(remainingSeconds).padStart(2, "0")
+    );
 }
 
 
 /* =========================================================
-   6. NEXT WALLPAPER
-   ========================================================= */
+   6. SAFE FILE PATH
+   =========================================================
 
-function nextWallpaper() {
+   This helps with spaces and special characters
+   in your MP3 filenames.
+*/
 
-    currentWallpaper++;
+function getMusicPath(filename) {
 
-    if (currentWallpaper >= wallpapers.length) {
-        currentWallpaper = 0;
-    }
-
-    changeWallpaper(currentWallpaper);
+    return "music/" + encodeURIComponent(filename)
+        .replace(/%2F/g, "/");
 
 }
 
@@ -258,70 +420,103 @@ function nextWallpaper() {
 
 function loadSong(index, autoplay = false) {
 
-    if (index < 0) {
-        index = songs.length - 1;
+    if (!songs.length) {
+
+        console.error("No songs found in songs array.");
+
+        return;
+
     }
 
-    if (index >= songs.length) {
-        index = 0;
+    currentSongIndex = index;
+
+    const song = songs[currentSongIndex];
+
+    console.log("Loading song:");
+    console.log(song.file);
+
+    /*
+       Stop current audio
+    */
+
+    audio.pause();
+
+    /*
+       Change audio source
+    */
+
+    audio.src = getMusicPath(song.file);
+
+    audio.load();
+
+    /*
+       Update text
+    */
+
+    if (songTitle) {
+
+        songTitle.textContent =
+            song.title;
+
     }
 
-    currentSong = index;
+    if (songQuote) {
 
-    const song =
-        songs[currentSong];
+        songQuote.textContent =
+            `"${song.quote}"`;
 
-    /* Change title */
+    }
 
-    songTitle.textContent =
-        song.title;
+    /*
+       Reset progress
+    */
 
-    /* Change quote */
+    if (progressBar) {
 
-    songQuote.textContent =
-        `"${song.quote}"`;
+        progressBar.value = 0;
 
-    /* Change audio */
+    }
 
-    audioPlayer.src =
-        song.audio;
+    if (currentTimeElement) {
 
-    audioPlayer.load();
+        currentTimeElement.textContent =
+            "00:00";
 
-    /* Change wallpaper */
+    }
 
-    changeWallpaper(
-        currentSong % wallpapers.length
-    );
+    if (totalTimeElement) {
 
-    /* Reset progress */
+        totalTimeElement.textContent =
+            "00:00";
 
-    progressBar.value = 0;
+    }
 
-    currentTime.textContent =
-        "00:00";
+    /*
+       Change wallpaper immediately
+       whenever song changes.
+    */
 
-    totalTime.textContent =
-        "00:00";
+    changeWallpaper();
 
-    /* Status */
+    /*
+       Restart 120 second timer.
+    */
 
-    statusText.textContent =
-        "तैयार है";
+    restartWallpaperTimer();
 
-    playIcon.textContent =
-        "▶";
+    /*
+       Reset UI
+    */
 
-    isPlaying = false;
+    setPlayingUI(false);
 
-    stopVisualizer();
-
-
-    /* Play automatically if requested */
+    /*
+       Play automatically only when requested.
+    */
 
     if (autoplay) {
 
-        playSong();
+        playCurrentSong();
 
     }
 
@@ -329,67 +524,64 @@ function loadSong(index, autoplay = false) {
 
 
 /* =========================================================
-   8. PLAY
+   8. PLAY CURRENT SONG
    ========================================================= */
 
-function playSong() {
+function playCurrentSong() {
 
-    audioPlayer.play()
-        .then(() => {
+    if (!audio.src) {
 
-            isPlaying = true;
+        loadSong(currentSongIndex, false);
 
-            playIcon.textContent =
-                "⏸";
+    }
 
-            playButton.setAttribute(
-                "aria-label",
-                "Pause Song"
-            );
+    const playPromise =
+        audio.play();
 
-            statusText.textContent =
-                "अब बज रहा है";
+    if (playPromise !== undefined) {
 
-            startVisualizer();
+        playPromise
+            .then(() => {
 
-        })
-        .catch(error => {
+                setPlayingUI(true);
 
-            console.error(
-                "Audio playback error:",
-                error
-            );
+            })
+            .catch(error => {
 
-            statusText.textContent =
-                "गीत चल नहीं पाया";
+                console.error(
+                    "Audio playback error:",
+                    error
+                );
 
-        });
+                setPlayingUI(false);
+
+                if (statusText) {
+
+                    statusText.textContent =
+                        "गीत चल नहीं पाया";
+
+                }
+
+                /*
+                   Check browser console if this happens.
+                */
+
+            });
+
+    }
 
 }
 
 
 /* =========================================================
-   9. PAUSE
+   9. PAUSE SONG
    ========================================================= */
 
-function pauseSong() {
+function pauseCurrentSong() {
 
-    audioPlayer.pause();
+    audio.pause();
 
-    isPlaying = false;
-
-    playIcon.textContent =
-        "▶";
-
-    playButton.setAttribute(
-        "aria-label",
-        "Play Song"
-    );
-
-    statusText.textContent =
-        "रुका हुआ है";
-
-    stopVisualizer();
+    setPlayingUI(false);
 
 }
 
@@ -398,136 +590,232 @@ function pauseSong() {
    10. PLAY / PAUSE BUTTON
    ========================================================= */
 
-playButton.addEventListener(
-    "click",
-    () => {
+if (playButton) {
 
-        if (isPlaying) {
+    playButton.addEventListener(
+        "click",
+        function () {
 
-            pauseSong();
+            if (audio.paused) {
 
-        } else {
+                playCurrentSong();
 
-            playSong();
+            } else {
+
+                pauseCurrentSong();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   11. PLAYING UI
+   ========================================================= */
+
+function setPlayingUI(isPlaying) {
+
+    if (isPlaying) {
+
+        if (playIcon) {
+
+            playIcon.textContent = "⏸";
+
+        }
+
+        if (statusText) {
+
+            statusText.textContent =
+                "चल रहा है";
+
+        }
+
+        if (visualizer) {
+
+            visualizer.classList.add("active");
+
+        }
+
+    } else {
+
+        if (playIcon) {
+
+            playIcon.textContent = "▶";
+
+        }
+
+        if (statusText) {
+
+            statusText.textContent =
+                "रुका हुआ है";
+
+        }
+
+        if (visualizer) {
+
+            visualizer.classList.remove("active");
 
         }
 
     }
-);
+
+}
 
 
 /* =========================================================
-   11. NEXT SONG
+   12. NEXT SONG
    ========================================================= */
 
-nextButton.addEventListener(
-    "click",
-    () => {
+function nextSong() {
 
-        currentSong++;
+    currentSongIndex++;
 
-        if (currentSong >= songs.length) {
-            currentSong = 0;
-        }
+    if (
+        currentSongIndex >=
+        songs.length
+    ) {
 
-        loadSong(
-            currentSong,
-            true
-        );
+        currentSongIndex = 0;
 
     }
-);
+
+    loadSong(
+        currentSongIndex,
+        true
+    );
+
+}
 
 
 /* =========================================================
-   12. PREVIOUS SONG
+   13. PREVIOUS SONG
    ========================================================= */
 
-previousButton.addEventListener(
-    "click",
-    () => {
+function previousSong() {
 
-        currentSong--;
+    currentSongIndex--;
 
-        if (currentSong < 0) {
-            currentSong = songs.length - 1;
-        }
+    if (
+        currentSongIndex < 0
+    ) {
 
-        loadSong(
-            currentSong,
-            true
-        );
+        currentSongIndex =
+            songs.length - 1;
 
     }
-);
+
+    loadSong(
+        currentSongIndex,
+        true
+    );
+
+}
 
 
 /* =========================================================
-   13. SONG ENDS
+   14. NEXT BUTTON
    ========================================================= */
 
-audioPlayer.addEventListener(
+if (nextButton) {
+
+    nextButton.addEventListener(
+        "click",
+        nextSong
+    );
+
+}
+
+
+/* =========================================================
+   15. PREVIOUS BUTTON
+   ========================================================= */
+
+if (previousButton) {
+
+    previousButton.addEventListener(
+        "click",
+        previousSong
+    );
+
+}
+
+
+/* =========================================================
+   16. SONG ENDED
+   =========================================================
+
+   When one song finishes,
+   automatically play the next song.
+*/
+
+audio.addEventListener(
     "ended",
-    () => {
+    function () {
 
-        currentSong++;
-
-        if (currentSong >= songs.length) {
-            currentSong = 0;
-        }
-
-        loadSong(
-            currentSong,
-            true
-        );
+        nextSong();
 
     }
 );
 
 
 /* =========================================================
-   14. AUDIO TIME UPDATE
+   17. AUDIO LOADED
    ========================================================= */
 
-audioPlayer.addEventListener(
-    "timeupdate",
-    () => {
+audio.addEventListener(
+    "loadedmetadata",
+    function () {
 
-        if (!audioPlayer.duration) {
+        if (totalTimeElement) {
+
+            totalTimeElement.textContent =
+                formatTime(audio.duration);
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   18. AUDIO TIME UPDATE
+   ========================================================= */
+
+audio.addEventListener(
+    "timeupdate",
+    function () {
+
+        if (!audio.duration) {
             return;
         }
 
         const percentage =
-            (audioPlayer.currentTime /
-                audioPlayer.duration) *
-            100;
+            (
+                audio.currentTime /
+                audio.duration
+            ) * 100;
 
-        progressBar.value =
-            percentage;
+        if (progressBar) {
 
-        currentTime.textContent =
-            formatTime(
-                audioPlayer.currentTime
-            );
+            progressBar.value =
+                percentage;
 
-    }
-);
+        }
 
+        if (currentTimeElement) {
 
-/* =========================================================
-   15. AUDIO LOADED
-   ========================================================= */
+            currentTimeElement.textContent =
+                formatTime(audio.currentTime);
 
-audioPlayer.addEventListener(
-    "loadedmetadata",
-    () => {
+        }
 
-        if (audioPlayer.duration) {
+        if (totalTimeElement) {
 
-            totalTime.textContent =
-                formatTime(
-                    audioPlayer.duration
-                );
+            totalTimeElement.textContent =
+                formatTime(audio.duration);
 
         }
 
@@ -536,133 +824,307 @@ audioPlayer.addEventListener(
 
 
 /* =========================================================
-   16. PROGRESS BAR
+   19. PROGRESS BAR
    ========================================================= */
 
-progressBar.addEventListener(
-    "input",
-    () => {
+if (progressBar) {
 
-        if (!audioPlayer.duration) {
-            return;
+    progressBar.addEventListener(
+        "input",
+        function () {
+
+            if (!audio.duration) {
+                return;
+            }
+
+            const time =
+                (
+                    progressBar.value /
+                    100
+                ) * audio.duration;
+
+            audio.currentTime = time;
+
         }
-
-        const newTime =
-            (progressBar.value / 100) *
-            audioPlayer.duration;
-
-        audioPlayer.currentTime =
-            newTime;
-
-    }
-);
-
-
-/* =========================================================
-   17. FORMAT TIME
-   ========================================================= */
-
-function formatTime(seconds) {
-
-    if (
-        !seconds ||
-        isNaN(seconds)
-    ) {
-
-        return "00:00";
-
-    }
-
-    const minutes =
-        Math.floor(
-            seconds / 60
-        );
-
-    const secondsRemaining =
-        Math.floor(
-            seconds % 60
-        );
-
-    return (
-        String(minutes).padStart(2, "0") +
-        ":" +
-        String(secondsRemaining)
-            .padStart(2, "0")
     );
 
 }
 
 
 /* =========================================================
-   18. VISUALIZER
+   20. AUDIO PLAY EVENT
    ========================================================= */
 
-function startVisualizer() {
+audio.addEventListener(
+    "play",
+    function () {
 
-    if (visualizer) {
-
-        visualizer.classList.add(
-            "playing"
-        );
+        setPlayingUI(true);
 
     }
-
-}
-
-
-function stopVisualizer() {
-
-    if (visualizer) {
-
-        visualizer.classList.remove(
-            "playing"
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   19. AUTOMATIC WALLPAPER
-       EVERY 120 SECONDS
-   ========================================================= */
-
-setInterval(
-    () => {
-
-        nextWallpaper();
-
-    },
-    120000
 );
 
 
 /* =========================================================
-   20. INITIALIZE
+   21. AUDIO PAUSE EVENT
    ========================================================= */
 
-function initializeWebsite() {
+audio.addEventListener(
+    "pause",
+    function () {
 
-    /*
-       IMPORTANT:
+        setPlayingUI(false);
 
-       First wallpaper is loaded immediately.
-    */
+    }
+);
 
-    changeWallpaper(0);
 
-    /*
-       First song.
-    */
+/* =========================================================
+   22. AUDIO ERROR
+   =========================================================
 
-    loadSong(0);
+   This is VERY useful if filename is wrong.
+*/
+
+audio.addEventListener(
+    "error",
+    function () {
+
+        console.error(
+            "❌ SONG FILE ERROR"
+        );
+
+        console.error(
+            "Current song:",
+            songs[currentSongIndex]
+        );
+
+        if (statusText) {
+
+            statusText.textContent =
+                "Song file नहीं मिला";
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   23. CHANGE WALLPAPER
+   ========================================================= */
+
+function changeWallpaper() {
+
+    if (!wallpapers.length) {
+
+        console.error(
+            "No wallpapers found."
+        );
+
+        return;
+
+    }
+
+    const wallpaper =
+        wallpapers[currentWallpaperIndex];
 
     console.log(
-        "🇮🇳 Fauji Deshbhakti Geet loaded successfully!"
+        "Wallpaper:",
+        wallpaper
+    );
+
+    /*
+       Alternate between the two background layers.
+       This creates a crossfade.
+    */
+
+    if (activeBackground === 1) {
+
+        if (backgroundLayer2) {
+
+            backgroundLayer2.style.backgroundImage =
+                `url("${wallpaper}")`;
+
+            backgroundLayer2.classList.add(
+                "visible"
+            );
+
+        }
+
+        if (backgroundLayer1) {
+
+            backgroundLayer1.classList.remove(
+                "visible"
+            );
+
+        }
+
+        activeBackground = 2;
+
+    } else {
+
+        if (backgroundLayer1) {
+
+            backgroundLayer1.style.backgroundImage =
+                `url("${wallpaper}")`;
+
+            backgroundLayer1.classList.add(
+                "visible"
+            );
+
+        }
+
+        if (backgroundLayer2) {
+
+            backgroundLayer2.classList.remove(
+                "visible"
+            );
+
+        }
+
+        activeBackground = 1;
+
+    }
+
+    /*
+       Move to next wallpaper.
+    */
+
+    currentWallpaperIndex++;
+
+    if (
+        currentWallpaperIndex >=
+        wallpapers.length
+    ) {
+
+        currentWallpaperIndex = 0;
+
+    }
+
+}
+
+
+/* =========================================================
+   24. START / RESTART 120 SECOND TIMER
+   ========================================================= */
+
+function restartWallpaperTimer() {
+
+    /*
+       Clear previous timer first.
+       This is important.
+
+       Otherwise multiple timers could run together.
+    */
+
+    clearInterval(
+        wallpaperTimer
+    );
+
+    /*
+       Change wallpaper every 120 seconds.
+    */
+
+    wallpaperTimer =
+        setInterval(
+            function () {
+
+                changeWallpaper();
+
+            },
+            WALLPAPER_INTERVAL
+        );
+
+}
+
+
+/* =========================================================
+   25. INITIAL WALLPAPER
+   ========================================================= */
+
+function initializeWallpaper() {
+
+    /*
+       Start with first wallpaper.
+    */
+
+    currentWallpaperIndex = 0;
+
+    activeBackground = 1;
+
+    if (backgroundLayer1) {
+
+        backgroundLayer1.style.backgroundImage =
+            `url("${wallpapers[0]}")`;
+
+        backgroundLayer1.classList.add(
+            "visible"
+        );
+
+    }
+
+    /*
+       Next wallpaper should be number 2.
+    */
+
+    currentWallpaperIndex = 1;
+
+    /*
+       Start 120 second timer.
+    */
+
+    restartWallpaperTimer();
+
+}
+
+
+/* =========================================================
+   26. INITIAL SONG
+   ========================================================= */
+
+function initializeSong() {
+
+    /*
+       Load first song but DON'T autoplay.
+
+       Browser normally blocks autoplay.
+       User must click Play.
+    */
+
+    loadSong(
+        0,
+        false
     );
 
 }
 
 
-initializeWebsite();
+/* =========================================================
+   27. INITIALIZE WEBSITE
+   ========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        console.log(
+            "🇮🇳 Fauji Deshbhakti Geet started."
+        );
+
+        console.log(
+            "Total songs:",
+            songs.length
+        );
+
+        console.log(
+            "Total wallpapers:",
+            wallpapers.length
+        );
+
+        initializeWallpaper();
+
+        initializeSong();
+
+    }
+);
